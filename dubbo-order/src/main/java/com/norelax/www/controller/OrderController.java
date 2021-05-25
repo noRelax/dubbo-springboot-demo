@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class OrderController {
@@ -19,5 +20,11 @@ public class OrderController {
     @ResponseBody
     public List<UserAddress> initOrder(@RequestParam("uid") String userId) {
         return orderService.initOrder(userId);
+    }
+
+    @RequestMapping("/article_info")
+    @ResponseBody
+    public Map articleInfo(@RequestParam("id") Long id) {
+        return orderService.articleInfo(id);
     }
 }
